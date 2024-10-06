@@ -14,9 +14,6 @@ dependencies:
   cupertino_icons: ^1.0.8
   get: ^4.6.6
   google_fonts: ^6.2.1
-  http: ^1.2.2
-  fpdart: ^1.1.0
-  shared_preferences: ^2.3.2
 
 dev_dependencies:
   flutter_test:
