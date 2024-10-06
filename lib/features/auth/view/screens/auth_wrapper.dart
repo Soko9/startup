@@ -1,5 +1,4 @@
 import 'package:client/core/controllers/current_user_controller.dart';
-import 'package:client/features/auth/model/user_model.dart';
 import 'package:client/features/auth/view/screens/login_screen.dart';
 import 'package:client/features/home/view/screens/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +12,7 @@ class AuthWrapper extends GetView<CurrentUserController> {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => controller.user == UserModel.empty()
+      () => controller.user.token.isEmpty
           ? const LoginScreen()
           : const HomeScreen(),
     );

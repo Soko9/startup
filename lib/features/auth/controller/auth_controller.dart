@@ -80,14 +80,23 @@ class AuthController extends GetxController {
     isLoading = false;
   }
 
-  Future<UserModel?> getCurrentUser() async {
+  Future<void> signout() async {
     isLoading = true;
     clearError();
+    await _authLocalRepo.deleteToken();
+    _currentUserController.user = UserModel.empty();
+    isLoading = false;
+    Get.offAllNamed(LoginScreen.routeName);
+  }
+
+  Future<UserModel?> getCurrentUser() async {
     final token = _authLocalRepo.getToken();
     if (token == null) {
-      error = "No token found";
       return null;
     }
+
+    isLoading = true;
+    clearError();
 
     final either = await _authRemoteRepo.getCurrentUser(token: token);
     UserModel? currentUserModel;

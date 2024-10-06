@@ -39,5 +39,5 @@ class UserModel {
 
   @override
   String toString() =>
-      'UserModel(id: $id, name: $name, email: $email, toekn: $token)';
+      'UserModel(id: $id, name: $name, email: $email, token: $token)';
 }

@@ -17,4 +17,8 @@ class AuthLocalRepo {
   String? getToken() {
     return _sharedPreferences.getString(_tokenKey);
   }
+
+  Future<void> deleteToken() async {
+    await _sharedPreferences.remove(_tokenKey);
+  }
 }
